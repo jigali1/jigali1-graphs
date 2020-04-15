@@ -12,46 +12,48 @@ let spanY = document.getElementById('spanY');
 let point = {};
 
 let graphs = [];
-
-let fun1 = {
-	a: 0,
-	b: 0,
-	fY: function (x) {
-		return +this.a * x + +this.b;
-	}
-};
-let fun2 = {
-	a: 0,
-	b: 0,
-	c: 0,
-	fY: function (x) {
-		return +this.a * x * x + +this.b * x + +this.c;
-	}
-};
-let fun3 = {
-	a: 0,
-	b: 0,
-	fY: function (x) {
-		return +this.a/x + +this.b;
-	}
-};
-let fun4 = {
-	a: 0,
-	b: 0,
-	c: 0,
-	fY: function (x) {
-		return +this.a * Math.pow(+this.b, x) + +this.c;
-	}
-};
-let fun5 = {
-	a: 0,
-	b: 0,
-	c: 0,
-	fY: function (x) {
-		return +this.a * Math.sin(+this.b * x) + +this.c;
-	}
-};
-
+let fun =[
+	{
+		a: 0,
+		b: 0,
+		fY: function (x) {
+			return +this.a * x + +this.b;}
+	},
+	{
+		a: 0,
+		b: 0,
+		c: 0,
+		fY: function (x) {
+			return +this.a * x * x + +this.b * x + +this.c;}
+	},
+	{
+		a: 0,
+		b: 0,
+		fY: function (x) {
+			return +this.a/x + +this.b;}	
+	},
+	{
+		a: 0,
+		b: 0,
+		c: 0,
+		fY: function (x) {
+			return +this.a * Math.pow(+this.b, x) + +this.c;}
+	},
+	{
+		a: 0,
+		b: 0,
+		c: 0,
+		fY: function (x) {
+			return +this.a * Math.sin(+this.b * x) + +this.c;}
+	},
+	{
+		a: 0,
+		b: 0,
+		c: 0,
+		fY: function (x) {
+			return +this.a * Math.cos(+this.b * x) + +this.c;}
+	}		
+];
 
 let range = document.getElementById('range');
 
@@ -76,19 +78,20 @@ function changeStep() {
 
 function setGraph() {
 	let funcName = document.getElementById('func-name').value;
-	let tmp = {};	
-	switch(funcName) {
+	let tmp = {};
+	fun[funcName].a = document.getElementById('a').value;
+			fun[funcName].b = document.getElementById('b').value;
+			fun[funcName].c = document.getElementById('c').value;
+			Object.assign(tmp, fun[funcName]);
+	
+	/*switch(funcName) {
 		case '1' :
 			fun1.a = document.getElementById('a').value;
 			fun1.b = document.getElementById('b').value;
 			Object.assign(tmp, fun1);
 		break;
 		case '2' :
-			fun2.a = document.getElementById('a').value;
-			fun2.b = document.getElementById('b').value;
-			fun2.c = document.getElementById('c').value;
-			Object.assign(tmp, fun2);
-		break;
+			
 		case '3' :
 			fun3.a = document.getElementById('a').value;
 			fun3.b = document.getElementById('b').value;
@@ -106,7 +109,7 @@ function setGraph() {
 			fun5.c = document.getElementById('c').value;
 			Object.assign(tmp, fun5);
 		break;	
-	}
+	}*/
 	graphs.unshift(tmp);
 
 	draw(false);
