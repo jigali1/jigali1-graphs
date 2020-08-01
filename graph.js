@@ -77,7 +77,7 @@ function changeStep() {
 }
 
 function setGraph() {
-	let funcName = document.getElementById('func-name').value;
+	let funcName = document.querySelector('.select__input').id;
 	let tmp = {};
 	fun[funcName].a = document.getElementById('a').value;
 			fun[funcName].b = document.getElementById('b').value;
