@@ -4,10 +4,6 @@
 	font-family: 'Recursive', sans-serif;
 }
 
-.select p {
-	margin: 0;
-}
-
 .select__input  {
 	padding: 0.5rem;
 	border: 1px solid #999;
@@ -45,21 +41,6 @@
 
 .select__item:last-child {
 	border-bottom: none;
-}
-
-.select__dropdown {
-	position: absolute;
-	border: 1px solid #aaa;
-	border-radius: 5px;
-	cursor: pointer;
-	display: none;
-	left: 0;
-	right: 0;
-	background-color: #eee;
-	color: #bbb;
-	max-height: 200px;
-	overflow-y: scroll;
-	box-shadow: 4px 3px 10px black;
 }
 
 .select__item:hover {
